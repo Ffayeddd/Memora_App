@@ -20,8 +20,10 @@ class AppRouting{
    static Route onGenerate(RouteSettings settings){
      switch (settings.name){
        case AppRoutesName.auth:
-         return MaterialPageRoute(builder: (context) =>Details(),);
-       case AppRoutesName.news:
+         return MaterialPageRoute(
+          builder: (context) => Auth(),
+        );
+      case AppRoutesName.news:
          return MaterialPageRoute(builder: (context) => News(),);
        case AppRoutesName.signUp:
          return MaterialPageRoute(builder: (context) => SignUp(),);
