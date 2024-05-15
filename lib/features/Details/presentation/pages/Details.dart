@@ -7,6 +7,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:memora/config.dart';
+
+
 import 'package:memora/config/routes/app_router.dart';
 import 'package:memora/core/Location/location.dart';
 import 'package:memora/core/components/reusable_components.dart';
@@ -59,7 +61,7 @@ class _DetailsState extends State<Details> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        toolbarHeight: 350.23.h,
+        toolbarHeight: 100.h,
         centerTitle: true,
         title: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -122,7 +124,7 @@ class _DetailsState extends State<Details> {
                       ))
                 ],
               ),
-            )
+            ),
           ],
         ),
         backgroundColor: AppColors.blueColor,

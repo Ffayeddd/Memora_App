@@ -8,7 +8,6 @@ import 'package:memora/core/enums/enums.dart';
 import 'package:memora/features/Details/presentation/pages/Details.dart';
 import 'package:memora/features/signUp/data/models/userModel.dart';
 import 'package:memora/features/signUp/presentation/bloc/sign_up_bloc.dart';
-
 import '../../../../core/utilies/app_colors.dart';
 import '../widgets/field.dart';
 

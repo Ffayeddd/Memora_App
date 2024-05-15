@@ -32,13 +32,13 @@ class _LoginState extends State<Login> {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(),
+
       body: BlocProvider(
         create: (context) => loginBloc,
         child: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state) {
             if(state.status==RequestStatus.success){
-              Navigator.pushNamedAndRemoveUntil(context, AppRoutesName.home, (route) => false);
+              Navigator.pushNamedAndRemoveUntil(context, AppRoutesName.mainScreen, (route) => false);
             }
             if(state.status==RequestStatus.failure){
               showDialog(context: context, builder: (context) => AlertDialog(
