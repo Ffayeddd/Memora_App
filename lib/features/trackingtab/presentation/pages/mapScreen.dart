@@ -7,6 +7,9 @@ import 'package:flutter/services.dart';
 import 'package:memora/core/utilies/app_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../core/Firebase/FirebaseFunctions.dart';
+import '../../data/model/trackingModel.dart';
+
 class MapScreen extends StatefulWidget {
   @override
   _MapScreenState createState() => _MapScreenState();
@@ -91,10 +94,18 @@ class _MapScreenState extends State<MapScreen> {
     try {
       Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
       LatLng currentLatLng = LatLng(position.latitude, position.longitude);
-      await FirebaseFirestore.instance.collection('saved_locations').add({
-        'latitude': currentLatLng.latitude,
-        'longitude': currentLatLng.longitude,
-      });
+
+      // Create a TrackingModel instance with the current location's latitude and longitude
+      TrackingModel trackingModel = TrackingModel(
+        id: '',
+        latitude: currentLatLng.latitude.toString(),
+        longitude: currentLatLng.longitude.toString(),
+      );
+
+      // Call the saveLocation function and pass the TrackingModel instance as an argument
+      await saveLocation(trackingModel);
+
+      // Add a yellow marker to the map to indicate the saved location
       setState(() {
         _markers.add(
           Marker(

@@ -55,7 +55,7 @@ class FirebaseFunctions{
 }
 Future<void> saveLocation(TrackingModel trackingModel) async {
   var collection=FirebaseFirestore.instance
-      .collection("locations")
+      .collection(TrackingModel.collecionName)
       .withConverter<TrackingModel>(
     fromFirestore: (snapshot, _) {
       return TrackingModel.fromJson(snapshot.data()!);
